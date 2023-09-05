@@ -143,6 +143,31 @@
             "type": "bool",
             "defaultValue": true
         },
+        "Defender365LogHubName": {
+            "type": "string",
+            "defaultValue": "insights-logs-defender365logs",
+            "metadata": {
+                "description": "Event Hub name containing Defender365 logs"
+            }
+        },
+        "Defender365LogEventHubConsumerGroup": {
+            "type": "string",
+            "defaultValue": "$Default",
+            "metadata": {
+                "description": "Consumer group for the Defender365 log Event Hub"
+            }
+        },
+        "Defender365LogSourceType": {
+            "type": "string",
+            "defaultValue": "azure:defender365",
+            "metadata": {
+                "description": "Splunk sourcetype base for Defender365 log Event Hub"
+            }
+        },
+        "Defender365LogDisabled": {
+            "type": "bool",
+            "defaultValue": false
+        },
 
         "metricsHubName": {
             "type": "string",
