@@ -1,4 +1,4 @@
-# THIS IS A MODIFICATION OF SPLUNK CODE TO INCLUDE DEFENDER365 LOGS - ORIGINAL CODE: https://github.com/splunk/azure-functions-splunk 
+THIS IS A MODIFICATION OF SPLUNK CODE TO INCLUDE DEFENDER365 LOGS - ORIGINAL CODE: https://github.com/splunk/azure-functions-splunk 
 
 # Azure Functions for Splunk
 
