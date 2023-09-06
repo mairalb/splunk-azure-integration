@@ -393,6 +393,22 @@
                             "name": "AzureWebJobs.aad-signin-logs-service-principal.Disabled",
                             "value": "[parameters('aadServicePrincipalLogDisabled')]"
                         },
+			{
+                            "name": "DEFENDER365_LOG_HUB_NAME",
+                            "value": "[parameters('Defender365LogHubName')]"
+                        },
+                        {
+                            "name": "DEFENDER365_LOG_CONSUMER_GROUP",
+                            "value": "[parameters('Defender365LogEventHubConsumerGroup')]"
+                        },
+                        {
+                            "name": "DEFENDER365_LOG_SOURCETYPE",
+                            "value": "[parameters('Defender365LogSourceType')]"
+                        },
+                        {
+                            "name": "AzureWebJobs.defender365.Disabled",
+                            "value": "[parameters('Defender365LogDisabled')]"
+                        },
 
                         {
                             "name": "METRICS_LOG_HUB_NAME",
