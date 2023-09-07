@@ -33,11 +33,9 @@
                 "description": "Storage Account TLS version"
             }
         },
-        "eventHubConnectionString": {
-            "type": "string",
-            "metadata": {
-                "description": "Event Hub Namespace connection string"
-            }
+        "AuthorizationRules_RootManageSharedAccessKey_name": {
+            "defaultValue": "RootManageSharedAccessKey",
+            "type": "String"
         },
 
         "activityLogHubName": {
@@ -324,7 +322,7 @@
                         },
                         {
                             "name": "EVENTHUB_CONNECTION_STRING",
-                            "value": "[parameters('eventHubConnectionString')]"
+                            "value": "[listkeys(resourceId('Microsoft.EventHub/namespaces/authorizationRules', parameters('appName'),parameters('AuthorizationRules_RootManageSharedAccessKey_name')), '2017-04-01').primaryConnectionString]"
                         },
                         {
                             "name": "ACTIVITY_LOG_HUB_NAME",
