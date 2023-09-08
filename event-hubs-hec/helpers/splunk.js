@@ -18,7 +18,7 @@ const axios = require('axios');
 const getSourceType = function(sourcetype, resourceId, category) {
 
     // If this is an AAD sourcetype, append the category to the sourcetype and return
-    let aadSourcetypes = [process.env["AAD_LOG_SOURCETYPE"], process.env["AAD_NON_INTERACTIVE_SIGNIN_LOG_SOURCETYPE"], process.env["AAD_SERVICE_PRINCIPAL_SIGNIN_LOG_SOURCETYPE"], process.env["AAD_PROVISIONING_LOG_SOURCETYPE"], process.env["DEFENDER365_LOG_SOURCETYPE"]];
+    let aadSourcetypes = [process.env["AAD_LOG_SOURCETYPE"]];
     if(aadSourcetypes.indexOf(sourcetype) > -1) {
         return `${sourcetype}:${category.toLowerCase()}`;
     }
