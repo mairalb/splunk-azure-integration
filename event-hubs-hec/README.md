@@ -1,10 +1,6 @@
 # Azure Functions for Sending Event Hub data to a Splunk HTTP Event Collector
 Events arriving on an Azure Event Hub can trigger serverless Azure Functions.  Azure Functions can further process the raw events in near real-time.
 
-<a href="https://portal.azure.com/#blade/Microsoft_Azure_CreateUIDef/CustomDeploymentBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsplunk%2Fazure-functions-splunk%2Fmaster%2Fevent-hubs-hec%2Fdeploy%2FazureDeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2Fsplunk%2Fazure-functions-splunk%2Fmaster%2Fevent-hubs-hec%2Fdeploy%2FazureDeploy.portal.json" target="_blank">
-<img src="https://aka.ms/deploytoazurebutton"/>
-</a>
-
 This repository contains a collection of Azure Functions for:
 * Processing events as they arrive on an Event Hub
 * Separating batched events (events in a `records[]` array) into individual events
