@@ -7,5 +7,7 @@ This repository contains available [Azure Functions]( https://azure.microsoft.co
 
 ## Available Functions
 
+| Functions | Location | Description |
+| --------- | -------- | ----------- |
 | Azure Event Hubs | [event-hubs-hec](https://github.com/mairalb/splunk-azure-integration/tree/main/event-hubs-hec) | These Azure Functions are triggered by events arriving on an Azure Event Hub.  The functions then process the events and send the event to a listening Splunk HTTP Event Collector |
 
