@@ -18,7 +18,7 @@ module.exports = async function (context, eventHubMessages) {
     
     for (const event of eventHubMessages) {
         await splunk
-                .sendToHEC(event, process.env["ACTIVITY_LOG_SOURCETYPE"])
+                .sendToHEC(event, process.env["ACTIVITY_LOG_SOURCETYPE"], process.env["ACTIVITY_LOG_INDEX"])
                 .catch(err => {
                     context.log.error(`Error posting to Splunk HTTP Event Collector: ${err}`);
                     

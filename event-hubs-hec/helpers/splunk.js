@@ -54,7 +54,7 @@ const getTimeStamp = function(message) {
     return null;
 }
 
-const getHECPayload = async function(message, sourcetype) {
+const getHECPayload = async function(message, sourcetype, index) {
 
     try {
         jsonMessage = JSON.parse(message);
@@ -62,7 +62,8 @@ const getHECPayload = async function(message, sourcetype) {
         // The message is not JSON, so send it as-is.
         let payload = {
             "sourcetype": sourcetype,
-            "event": message
+            "event": message,
+	    "index": index
         }
         return payload;
     }
@@ -75,7 +76,8 @@ const getHECPayload = async function(message, sourcetype) {
             
             let recordEvent = {
                 "sourcetype": sourcetype,
-                "event": JSON.stringify(record)
+                "event": JSON.stringify(record),
+		"index": index
             }
             
             if((record.hasOwnProperty('resourceId')) && (record.hasOwnProperty('category'))) {
@@ -93,20 +95,21 @@ const getHECPayload = async function(message, sourcetype) {
     // If we made it here, the JSON does not contain a records[] array, so send the data as-is
     let payload = {
         "sourcetype": sourcetype,
-        "event": JSON.stringify(jsonMessage)
+        "event": JSON.stringify(jsonMessage),
+	"index": index
     }
     let eventTimeStamp = getTimeStamp(jsonMessage);
     if(eventTimeStamp) { payload["time"] = eventTimeStamp; }
     return payload
 }
 
-const sendToHEC = async function(message, sourcetype) {
+const sendToHEC = async function(message, sourcetype, index) {
 
     let headers = {
         "Authorization": `Splunk ${process.env["SPLUNK_HEC_TOKEN"]}`
     }
 
-    await getHECPayload(message, sourcetype)
+    await getHECPayload(message, sourcetype, index)
         .then(payload => {
             return axios.post(process.env["SPLUNK_HEC_URL"], payload, {headers: headers});
         })
