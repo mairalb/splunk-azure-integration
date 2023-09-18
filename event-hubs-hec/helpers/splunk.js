@@ -78,15 +78,15 @@ const getHECPayload = async function(message, sourcetype, index) {
     // If the JSON contains a records[] array, batch the events for HEC.
     if(jsonMessage.hasOwnProperty('records')) {
         let payload = ''
-
         jsonMessage.records.forEach(function(record) {
+	  let recordEvent =  ''
           if(index.length==0) {
-            	let recordEvent = {
+            	recordEvent = {
                     "sourcetype": sourcetype,
                     "event": JSON.stringify(record)
             	}
            } else {
-                let recordEvent = {
+                recordEvent = {
                     "sourcetype": sourcetype,
                     "event": JSON.stringify(record),
                     "index": index
