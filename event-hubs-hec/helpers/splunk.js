@@ -60,11 +60,18 @@ const getHECPayload = async function(message, sourcetype, index) {
         jsonMessage = JSON.parse(message);
     } catch (err) {
         // The message is not JSON, so send it as-is.
-        let payload = {
-            "sourcetype": sourcetype,
-            "event": message,
-	    "index": index
-        }
+	if(index.length==0) {
+                let payload = {
+                        "sourcetype": sourcetype,
+                        "event": message
+                }
+	} else {
+        	let payload = {
+            		"sourcetype": sourcetype,
+            		"event": message,
+			"index": index
+        	}
+	}
         return payload;
     }
 
@@ -73,12 +80,18 @@ const getHECPayload = async function(message, sourcetype, index) {
         let payload = ''
 
         jsonMessage.records.forEach(function(record) {
-            
-            let recordEvent = {
-                "sourcetype": sourcetype,
-                "event": JSON.stringify(record),
-		"index": index
-            }
+          if(index.length==0) {
+            	let recordEvent = {
+                    "sourcetype": sourcetype,
+                    "event": JSON.stringify(record)
+            	}
+           } else {
+                let recordEvent = {
+                    "sourcetype": sourcetype,
+                    "event": JSON.stringify(record),
+                    "index": index
+                }
+	    }
             
             if((record.hasOwnProperty('resourceId')) && (record.hasOwnProperty('category'))) {
                 // Get the sourcetype
