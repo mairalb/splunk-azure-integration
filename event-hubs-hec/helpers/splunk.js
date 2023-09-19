@@ -106,10 +106,17 @@ const getHECPayload = async function(message, sourcetype, index) {
     }
 
     // If we made it here, the JSON does not contain a records[] array, so send the data as-is
-    let payload = {
-        "sourcetype": sourcetype,
-        "event": JSON.stringify(jsonMessage),
-	"index": index
+    if(index.length==0) {
+    	let payload = {
+        	"sourcetype": sourcetype,
+        	"event": JSON.stringify(jsonMessage),
+    	}
+    } else {
+        let payload = {
+                "sourcetype": sourcetype,
+                "event": JSON.stringify(jsonMessage),
+                "index": index
+        }
     }
     let eventTimeStamp = getTimeStamp(jsonMessage);
     if(eventTimeStamp) { payload["time"] = eventTimeStamp; }
