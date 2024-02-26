@@ -62,12 +62,12 @@ const getHECPayload = async function(message, sourcetype, index) {
         // The message is not JSON, so send it as-is.
 	let payload = ''
 	if(index.length==0) {
-                let payload = {
+                payload = {
                         "sourcetype": sourcetype,
                         "event": message
                 }
 	} else {
-        	let payload = {
+        	payload = {
             		"sourcetype": sourcetype,
             		"event": message,
 			"index": index
@@ -109,12 +109,12 @@ const getHECPayload = async function(message, sourcetype, index) {
     // If we made it here, the JSON does not contain a records[] array, so send the data as-is
     let payload = ''
     if(index.length==0) {
-    	let payload = {
+    	payload = {
         	"sourcetype": sourcetype,
         	"event": JSON.stringify(jsonMessage),
     	}
     } else {
-        let payload = {
+        payload = {
                 "sourcetype": sourcetype,
                 "event": JSON.stringify(jsonMessage),
                 "index": index
