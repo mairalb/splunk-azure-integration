@@ -60,6 +60,7 @@ const getHECPayload = async function(message, sourcetype, index) {
         jsonMessage = JSON.parse(message);
     } catch (err) {
         // The message is not JSON, so send it as-is.
+	let payload = ''
 	if(index.length==0) {
                 let payload = {
                         "sourcetype": sourcetype,
@@ -106,6 +107,7 @@ const getHECPayload = async function(message, sourcetype, index) {
     }
 
     // If we made it here, the JSON does not contain a records[] array, so send the data as-is
+    let payload = ''
     if(index.length==0) {
     	let payload = {
         	"sourcetype": sourcetype,
