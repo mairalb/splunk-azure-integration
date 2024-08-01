@@ -128,11 +128,11 @@ const getHECPayload = async function(message, sourcetype, index) {
 const sendToHEC = async function(message, sourcetype, index) {
     let headers = ''
     if(sourcetype === "azure:defender365:alerts") {
-      let headers = {
+      headers = {
           "Authorization": `Splunk ${process.env["SPLUNK_HEC_TOKEN"]}`
       }
     else {
-      let headers = {
+      headers = {
           "Authorization": `Splunk ${process.env["SPLUNK_HEC_TOKEN_2"]}`
       }
     }
