@@ -131,7 +131,7 @@ const sendToHEC = async function(message, sourcetype, index) {
       headers = {
           "Authorization": `Splunk ${process.env["SPLUNK_HEC_TOKEN"]}`
       }
-    else {
+    } else {
       headers = {
           "Authorization": `Splunk ${process.env["SPLUNK_HEC_TOKEN_2"]}`
       }
