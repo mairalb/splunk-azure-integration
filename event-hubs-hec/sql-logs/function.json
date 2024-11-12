@@ -13,7 +13,7 @@
     {
       "name": "outputBlob",
       "type": "blob",
-      "path": "undeliverable-events/%DEFENDER365_LOG_SOURCETYPE%-{rand-guid}",
+      "path": "undeliverable-events/%SQL_LOG_SOURCETYPE%-{rand-guid}",
       "connection": "BLOB_CONNECTION_STRING",
       "direction": "out"
     }
